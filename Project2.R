@@ -1,4 +1,4 @@
-# INSTALL PACKAGES hi
+# INSTALL PACKAGES
 
   install.packages("devtools")
   library(devtools)
