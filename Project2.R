@@ -87,18 +87,16 @@
   results <- t.test(minsSedentaryYesData, minsSedentaryNoData)
   pdfYes <- dnorm(minsSedentaryYesData, mean(minsSedentaryYesData), sd(minsSedentaryYesData))
   pdfNo <- dnorm(minsSedentaryNoData, mean(minsSedentaryNoData), sd(minsSedentaryNoData))
+  
   #DISPLAYING RESULTS
-    min <- min(minsSedentaryYesData) # Minimum x-value for PDF plot
-    max <- max(minsSedentaryYesData) # Maximum x-value for PDF plot
-    if(min(min(minsSedentaryNoData)) < min(minsSedentaryYesData)){
-      min <- min(minsSedentaryYesData)
-    } 
-    if(max(min(minsSedentaryNoData)) < max(minsSedentaryYesData)){
-      max <- max(minsSedentaryYesData)
-    } 
-    x <- seq(min,max)
+  
+    x <- seq(0,450)
+    length(pdfYes)<-451
+    length(pdfNo)<-451
     plot(x,pdfYes,col="green",main="Minutes of Sedentary Activity")
     lines(x,pdfNo,col="red")
+    legend("bottom", legend = c("People With Crawl, Walk, Run, and/or Play Limitations", "People With Crawl, Walk, Run, and/or Play Limitations"), 
+           col = c("green", "red"), lty = c(1, 1, 2))
     if(results$p.value < .05){
       print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is sufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations"))
     } else {
