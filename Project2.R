@@ -86,7 +86,7 @@
   if(results$p.value < .05){
     print("There is sufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations.")
   } else {
-    print("There is unsufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations")
+    print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is unsufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations",digits=3))
   }
   
   
