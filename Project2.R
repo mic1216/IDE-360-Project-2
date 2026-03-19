@@ -6,7 +6,8 @@
   library(Hmisc)
 
 # IMPORTING DATA FROM CDC
-# NOTE: IT IS IMPORTNAT THAT YOU CHANGE THE PATH TO ACCESS 
+# NOTE: IT IS IMPORTNAT THAT YOU HAVE PROPERLY DOWNLOADED THE WORKING DIRECTORY 
+# FROM GIT FOR THE DATA TO BE LOADED PROPERLY
   path <- getwd()
   physAct <- sasxport.get(paste0(path,"/Y_PAQ.xpt")) # Physical Activity Data
   physFunct <- sasxport.get(paste0(path,"/Y_PFQ.xpt")) # Physical Functioning Data
@@ -81,6 +82,11 @@
     plot(noHist,main="Minutes of Sedentary Activity for People Without Crawl, Walk, Run, and/or Play Limitations", xlab = "Minutes of Sedentary Activity" )
 
 # PERFORMING WELCH TWO SAMPLE T-TEST
-  results <- t.test(minsSedentaryYesData, minsSedentaryNoData) 
+  results <- t.test(minsSedentaryYesData, minsSedentaryNoData)
+  if(results$p.value < .05){
+    print("There is sufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations.")
+  } else {
+    print("There is unsufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations")
+  }
   
   
