@@ -93,7 +93,7 @@
     x <- seq(0,450)
     length(pdfYes)<-451
     length(pdfNo)<-451
-    plot(x,pdfYes,col="green",main="Minutes of Sedentary Activity")
+    plot(x,pdfYes,col="green",main="Minutes of Sedentary Activity",ylab="Probability Density")
     lines(x,pdfNo,col="red")
     legend("bottom", legend = c("People With Crawl, Walk, Run, and/or Play Limitations", "People With Crawl, Walk, Run, and/or Play Limitations"), 
            col = c("green", "red"), lty = c(1, 1, 2))
