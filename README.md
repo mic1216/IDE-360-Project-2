@@ -25,6 +25,7 @@ OVERVIEW
   it is advised that the user does choose to restart RStudio. 
 
 IMPORTING DATA
+
   The data sets are included in the repository. It is important to install the 
   entire working directory and to ensure ALL FILES REMAIN WITHIN THE SAME WORKING 
   DIRECTORY when performing analysis with this code, as the working directory of 
