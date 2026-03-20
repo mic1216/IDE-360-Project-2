@@ -20,6 +20,9 @@ path <- getwd() # Path to current current working
 physAct <- sasxport.get(paste0(path,"/Y_PAQ.xpt")) # Physical Activity Data
 physFunct <- sasxport.get(paste0(path,"/Y_PFQ.xpt")) # Physical Functioning Data
 
+# NOTE: if data set(s) names were changed, text between the '/' and the'.xpt' should
+# be changed to the updated name.
+
 # EXTRACTING VARIABLES OF INTEREST FROM THE DATA SETS: MINUTES OF SEDENTARY 
 # ACTIVITY AND WALK, CRAWL, PLAY LIMITATIONS
 
