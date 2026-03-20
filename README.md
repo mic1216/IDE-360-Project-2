@@ -2,10 +2,10 @@
 
 *There may be formating issues due to platform differences.
 
-This repository is made for the purpose of sampling data from the [2012 The National Health and Nutrition Examination Survey (NHANES)]
+This repository is made for the purpose of sampling data from the 2012 The National Health and Nutrition Examination Survey (NHANES)
 ([url](https://wwwn.cdc.gov/nchs/nhanes/search/nnyfsdata.aspx?Component=Questionnaire)) 
-on [Physical Activity]([url]https://wwwn.cdc.gov/Nchs/Data/Nnyfs/Public/2012/DataFiles/Y_PAQ.htm]) 
-and [Physical Functioning]([url](https://wwwn.cdc.gov/Nchs/Data/Nnyfs/Public/2012/DataFiles/Y_PFQ.htm))
+on Physical Activity([url](https://wwwn.cdc.gov/Nchs/Data/Nnyfs/Public/2012/DataFiles/Y_PAQ.htm])) 
+and Physical Functioning([url](https://wwwn.cdc.gov/Nchs/Data/Nnyfs/Public/2012/DataFiles/Y_PFQ.htm))
 using RStudio to answer the research question "Is there a link between how many
 minutes someone aged 3-19 spends sitting and how much difficulty they have with
 crawling, walking, running and/or playing?".
