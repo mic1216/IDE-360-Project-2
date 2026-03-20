@@ -116,9 +116,11 @@
            col = c("green", "red"), lty = c(1, 1, 2))
     print("Conclusion:")
     if(results$p.value < .05){
-      print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is sufficient evidence that there is a significant difference in the average number of minutes of sedentary activity between individuals with and without mobility limitations with 95% confidence"))
+      print(paste0("With a p value of ", round(results$p.value, digits = 2), ", 
+                   there is sufficient evidence that there is a significant difference in the average number of minutes of sedentary activity between individuals with and without mobility limitations with 95% confidence"))
     } else {
-      print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is insufficient evidence that there is a significant difference in the average number of minutes of sedentary activity between individuals with and without mobility limitations with 95% confidence"))
+      print(paste0("With a p value of ", round(results$p.value, digits = 2), ",
+                   there is insufficient evidence that there is a significant difference in the average number of minutes of sedentary activity between individuals with and without mobility limitations with 95% confidence"))
     }
   
   
