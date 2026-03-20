@@ -49,7 +49,12 @@ EXPLORATORY ANALYSIS
   the data of minutes spent sitting aswell as visuals for both samples combined. 
   This is done to assess the quality of the data and select an appropriate method of analysis.
 
-NB: It is important to note that the test will execute this way regardless of whether assumptions are met. This test is extremely robust and provides a reliable conclusion for comparisons of most datasets, however, it is important that the user reviews the outputs of the exploratory analysis in consideration of the [assumptions associated with Welch's t-test]([url](https://en.wikipedia.org/wiki/Welch%27s_t-test#Assumptions)) before forming their final conclusion.
+NB: It is important to note that the test will execute this way regardless of 
+whether assumptions are met. This test is extremely robust and provides a reliable 
+conclusion for comparisons of most datasets, however, it is important that the user 
+reviews the outputs of the exploratory analysis in consideration of the 
+[assumptions associated with Welch's t-test](https://en.wikipedia.org/wiki/Welch%27s_t-test#Assumptions)
+before forming their final conclusion.
 
 
 STATISTICAL ANALYSIS AND CONCLUSION

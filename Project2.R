@@ -106,8 +106,10 @@ x <- seq(1,(10*length(minsSedentaryDataUnord)),10) #Setting x-values for graph
 plot(x,minsSedentaryDataUnord,xlab="",ylab="Minutes of Sedentary Activity",main="Sedentary Activity Scatterplot")
 
 par(mfrow = c(2,1))
-plot(yesHist,main="Minutes of Sedentary Activity for People With Crawl, Walk, Run, and/or Play Limitations", xlab = "Minutes of Sedentary Activity" )
-plot(noHist,main="Minutes of Sedentary Activity for People Without Crawl, Walk, Run, and/or Play Limitations", xlab = "Minutes of Sedentary Activity" )
+plot(yesHist,main="Minutes of Sedentary Activity for People With Crawl, Walk, Run, and/or Play Limitations"
+     , xlab = "Minutes of Sedentary Activity" )
+plot(noHist,main="Minutes of Sedentary Activity for People Without Crawl, Walk, Run, and/or Play Limitations"
+     , xlab = "Minutes of Sedentary Activity" )
 par(mfrow = c(1, 1))
 
 # PERFORMING WELCH TWO SAMPLE T-TEST
