@@ -15,7 +15,7 @@
 # EXTRACTING VARIABLES OF INTEREST FROM THE DATA SETS: MINUTES OF SEDENTARY 
 # ACTIVITY AND WALK, CRAWL, PLAY LIMITATIONS
 
-  minsSedentaryData <- physAct$pad680 #Minutes Sedentary Activity
+  minsSedentaryDataOriginal <- physAct$pad680 #Minutes Sedentary Activity
   mobilLimitData <- physFunct$pfq020 # Crawl, Walk, Run, Play Limitations
 
 # DATA SETUP
@@ -23,12 +23,14 @@
   # CREATING TABLE FOR mobilLimitData IN RESPONSE TO minsSedentaryData TO CLEAN
   # THE DATA DUE TO MISSING ENTRIES OF MINUTES OF SENDENTARY ACTIVITY 
   
-    cleanData <- table(minsSedentaryData, mobilLimitData) # mobilLimitData vs mobilLimitData
+    cleanData <- table(minsSedentaryDataOriginal, mobilLimitData) # mobilLimitData vs mobilLimitData
     
     # EXTRACTING CLEAN DATA
       mobilLimitYesData <- cleanData[,1] # 'Yes' responses
       mobilLimitNoData <- cleanData[,2] # 'No' responses
+      mobilLimit <- c(mobilLimitYesData,mobilLimitNoData) # mobil Limit data
       minsSedentaryData <- as.integer(rownames(cleanData))
+    
   
   # GROUPED SAMPLING FROM mobilLimitYesData
     
@@ -71,16 +73,31 @@
       }
     }
   
-    describe(mobilLimitYesData)
+# DISPLAY SUMMARY STATISTICS
+    minsSedentaryData <- c(minsSedentaryYesData,minsSedentaryNoData)
+    print("Summary:")
+    print(summary(minsSedentaryData))
+    print("Description:")
+    print(describe(minsSedentaryData))
     
 # CHECKING FOR NORMALITY AND INDEPENDENCE
     
+  hist <- hist(minsSedentaryData)
   yesHist <- hist(minsSedentaryYesData)
   noHist<- hist(minsSedentaryNoData)
-  par(mfrow = c(3,1))
+  par(mfrow = c(1,1))
+  plot(hist,main="Minutes of Sedentary Activity", xlab = "Minutes of Sedentary Activity" )
+  
+  #Cleaning the original, unordered data
+    minsSedentaryDataUnord <- minsSedentaryDataOriginal[!is.na(minsSedentaryDataOriginal)] 
+    
+  x <- seq(1,(10*length(minsSedentaryDataUnord)),10) #Setting x-values for graph
+  plot(x,minsSedentaryDataUnord,xlab="",ylab="Minutes of Sedentary Activity",main="Sedentary Activity Scatterplot")
+  
+  par(mfrow = c(2,1))
   plot(yesHist,main="Minutes of Sedentary Activity for People With Crawl, Walk, Run, and/or Play Limitations", xlab = "Minutes of Sedentary Activity" )
   plot(noHist,main="Minutes of Sedentary Activity for People Without Crawl, Walk, Run, and/or Play Limitations", xlab = "Minutes of Sedentary Activity" )
-
+  par(mfrow = c(1, 1))
 
 # PERFORMING WELCH TWO SAMPLE T-TEST
   
@@ -97,10 +114,11 @@
     lines(x,pdfNo,col="red")
     legend("bottom", legend = c("People With Crawl, Walk, Run, and/or Play Limitations", "People With Crawl, Walk, Run, and/or Play Limitations"), 
            col = c("green", "red"), lty = c(1, 1, 2))
+    print("Conclusion:")
     if(results$p.value < .05){
-      print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is sufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations"))
+      print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is sufficient evidence that there is a significant difference in the average number of minutes of sedentary activity between individuals with and without mobility limitations with 95% confidence"))
     } else {
-      print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is insufficient evidence that there is a significant difference in the average numer of minutes of sedentary activity between individuals with and without mobility limitations"))
+      print(paste0("With a p value of ", round(results$p.value, digits = 2), ", there is insufficient evidence that there is a significant difference in the average number of minutes of sedentary activity between individuals with and without mobility limitations with 95% confidence"))
     }
   
   
